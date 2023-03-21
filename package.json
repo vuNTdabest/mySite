@@ -4,11 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "sasstocss": "node-sass sass/main.scss css/style.css -w"
+    "sasstocss": "node-sass sass/main.scss css/style.css -w",
+    "start": "nodemon server.js"
   },
   "author": "Vunt",
   "license": "ISC",
   "devDependencies": {
-    "node-sass": "^8.0.0"
+    "node-sass": "^8.0.0",
+    "nodemon": "^2.0.21"
   }
 }
