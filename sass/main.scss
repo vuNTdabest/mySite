@@ -1,0 +1,25 @@
+/* style the main page */
+
+@import './Abstracts/variable';
+@import './Abstracts/mixin';
+@import './Abstracts/variable';
+
+@import './Base/animation';
+@import './Base/base';
+@import './Base/typography';
+@import './Base/utilities';
+
+@import './Components/buttons'; 
+@import './Components/composition';
+@import './Components/skill-box';   
+@import './Components/card'; 
+@import './Components/testimonial';
+@import './Components/bg-video';
+@import './Components/popup';
+
+@import './Layout/navigation';
+@import './Layout/header';
+@import './Layout/grid';
+@import './Layout/footer';
+
+@import './Pages/home';
