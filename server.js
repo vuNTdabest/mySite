@@ -2,7 +2,7 @@
 const express = require('express');
 const app = express();
 const bcrypt = require('bcrypt');
-const collection = require('./user')
+const UserDB = require('./models/user.model')
 
 require('dotenv').config();
 
@@ -18,48 +18,69 @@ app.use(express.static(__dirname + '/public'));
 
 // Routes
 app.get('/', (req, res) => {
-    res.render('index', {username: null});
+    res.render('index', { username: null });
 });
 
-// app.get('/login', (req, res) => {
-//     res.render("login");
-// });
+app.get('/login', (req, res) => {
+    res.render("login");
+});
 
-// app.get('/register', (req, res) => {
-//     res.render("register");
-// });
+app.get('/register', (req, res) => {
+    res.render("register", { alert: null });
+});
 
-app.post('/register', async (req, res) => {
+app.post('/register', (req, res) => {
     try {
-        const hashedPw = await bcrypt.hash(req.body.password, 10)
-        const data = {
-            id: Date.now().toString(),
-            username: req.body.username,
-            email: req.body.email,
-            password: hashedPw
+        const { username, email, password } = req.body
+        if (username && email && password) {
+            UserDB.findOne({ $or: [{ email: req.body.email }] })
+                .then((user) => {
+                    if (!user) {
+                        const hashedPw = bcrypt.hash(req.body.password, 10)
+                        const data = {
+                            id: Date.now().toString(),
+                            username: req.body.username,
+                            email: req.body.email,
+                            password: hashedPw
+                        }
+                        UserDB.insertMany([data])
+                        const successAlert = "Sign-up successful!!!"
+                        res.render('login', { alert: successAlert })
+                    } else {
+                        console.log("This email has been registered!")
+                        const failedSignup = "This email has been registered!"
+                        res.render('register', { alert: failedSignup })
+                    }
+                })
+        } else {
+            console.log("This email has been registered!")
+            const failedSignup = "Needed to fill"
+            res.render('register', { alert: failedSignup })
         }
-        await collection.insertMany([data])
-        res.redirect('/login')
+
     } catch (e) {
-        console.log(e)
-        res.redirect('/register')
+        console.log(e);
+        const failedSignup = "Needed to fill"
+        res.render('register', { alert: failedSignup })
     }
 })
 
 app.post('/login', async (req, res) => {
     try {
-        collection.findOne({ $or: [{ email: req.body.email }] })
-            .then(collection => {
-                if (collection) {
-                    bcrypt.compare(req.body.password, collection.password, function (err, result) {
+        UserDB.findOne({ $or: [{ email: req.body.email }] })
+            .then((user) => {
+                if (user) {
+                    bcrypt.compare(req.body.password, user.password, function (err, result) {
                         if (err) {
                             res.send(err)
                         }
                         if (result) {
-                            res.render('index', { username: collection.username });
+                            res.render('index', { username: user.username });
                             // res.render('index')
                         } else {
                             res.send("Password does not matched!")
+                            // const conflictE = "Password does not matched!"
+                            // res.render('login', { email, password, username, conflictE })
                         }
                     })
                 } else {

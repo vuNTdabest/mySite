@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap' rel='stylesheet'
         type='text/css'>
-    <!-- <link rel="stylesheet" href="/css/styleLogin.css"> -->
+    <link rel="stylesheet" href="/css/styleLogin.css">
     <link rel="stylesheet" href="/bootstrap/bootstrap-5.0.2-dist/css/bootstrap.min.css">
     <title>Login | Vunt</title>
 </head>
@@ -24,6 +24,9 @@
                 </div>
                 <form action="/register" method="POST">
                     <div class="col-md-6 right">
+                        <% if(alert!=null) {%>
+                            <p style="color: red;"><%=alert%></p>
+                        <% } %>    
                         <div class="input-box">
                             <header>Register</header>
                             <div class="input-field">
