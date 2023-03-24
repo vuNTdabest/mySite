@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/login', (req, res) => {
-    res.render("login");
+    res.render("login", { alert: null });
 });
 
 app.get('/register', (req, res) => {
@@ -47,13 +47,11 @@ app.post('/register', (req, res) => {
                         const successAlert = "Sign-up successful!!!"
                         res.render('login', { alert: successAlert })
                     } else {
-                        console.log("This email has been registered!")
                         const failedSignup = "This email has been registered!"
                         res.render('register', { alert: failedSignup })
                     }
                 })
         } else {
-            console.log("This email has been registered!")
             const failedSignup = "Needed to fill"
             res.render('register', { alert: failedSignup })
         }
@@ -72,19 +70,20 @@ app.post('/login', async (req, res) => {
                 if (user) {
                     bcrypt.compare(req.body.password, user.password, function (err, result) {
                         if (err) {
-                            res.send(err)
+                            const failedLogin = "Password does not matched!"
+                            res.render('login', { alert: failedLogin })
                         }
                         if (result) {
                             res.render('index', { username: user.username });
                             // res.render('index')
                         } else {
-                            res.send("Password does not matched!")
-                            // const conflictE = "Password does not matched!"
-                            // res.render('login', { email, password, username, conflictE })
+                            const failedLogin = "Password does not matched!"
+                            res.render('login', { alert: failedLogin })
                         }
                     })
                 } else {
-                    res.send("No user found!")
+                    const failAlert = "No user found!"
+                    res.render('login', { alert:failAlert })
                 }
             })
     } catch (e) {

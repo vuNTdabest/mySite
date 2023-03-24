@@ -15,17 +15,25 @@
 <body>
     <div class="wrapper">
         <div class="container main">
-            <div class="row">
-                <div class="col-md-6 side-image">
-                    <!-- image -->
-                    <div class="text">
-                        <p>Join with me <i>Vunt</i></p>
+            <form action="/login" method="POST">
+                <div class="row">
+                    <div class="col-md-6 side-image">
+                        <!-- image -->
+                        <div class="text">
+                            <p>Join with me <i>Vunt</i></p>
+                        </div>
                     </div>
-                </div>
-                <form action="/login" method="POST">
+
                     <div class="col-md-6 right">
                         <div class="input-box">
                             <header>Login</header>
+                            <% if(alert!=null) {%>
+                                <div class="input-field">
+                                    <span style="color: red; text-align: center;">
+                                        <%=alert%>
+                                    </span>
+                                </div>
+                            <% } %>
                             <div class="input-field">
                                 <input type="text" name="email" class="input" id="email" required autocomplete="off">
                                 <label for="email">Email</label>
@@ -50,10 +58,11 @@
                                 <span>Don't have an account yet?<a href="/register">Register here</a></span>
                             </div>
                         </div>
-                </form>
-            </div>
+
+                    </div>
+                </div>
+            </form>
         </div>
-    </div>
     </div>
 </body>
 

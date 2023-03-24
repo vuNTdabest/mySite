@@ -15,20 +15,24 @@
 <body>
     <div class="wrapper">
         <div class="container main">
-            <div class="row">
-                <div class="col-md-6 side-image">
-                    <!------image------>
-                    <div class="text">
-                        <p>Join with me <i>Vunt</i></p>
+            <form action="/register" method="POST">
+                <div class="row">
+                    <div class="col-md-6 side-image">
+                        <!------image------>
+                        <div class="text">
+                            <p>Join with me <i>Vunt</i></p>
+                        </div>
                     </div>
-                </div>
-                <form action="/register" method="POST">
                     <div class="col-md-6 right">
-                        <% if(alert!=null) {%>
-                            <p style="color: red;"><%=alert%></p>
-                        <% } %>    
                         <div class="input-box">
                             <header>Register</header>
+                            <% if(alert!=null) {%>
+                                <div class="input-field">
+                                    <span style="color: red; text-align: center;">
+                                        <%=alert%>
+                                    </span>
+                                </div>
+                            <% } %>
                             <div class="input-field">
                                 <input type="text" class="input" id="username" name="username" required
                                     autocomplete="off">
@@ -47,7 +51,6 @@
                             <label for="checkbox">Remember me</label>
                         </div> -->
                             <div class="input-field">
-                                <!-- <input type="submit" class="submit" id="Sign Up"> -->
                                 <button class="submit" type="submit">
                                     Sign up
                                 </button>
@@ -60,8 +63,9 @@
                             </div>
                         </div>
                     </div>
-                </form>
-            </div>
+
+                </div>
+            </form>
         </div>
     </div>
 </body>
