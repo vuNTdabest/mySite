@@ -17,7 +17,17 @@
     }
 
     &__logo {
-        height: 70px;
+        // height: 90px;
+        background-color: rgba($color: $color-white, $alpha: .4);
+
+        &--text{
+            /* display: block; */
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 8px;
+            color: #ffff;
+            text-transform: uppercase;
+        }
     }
 
     &__logo-box {

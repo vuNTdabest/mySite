@@ -34,12 +34,32 @@
 
     <header class="header">
         <div class="header__logo-box">
-            <img src="/img/logo.png" class="header__logo" alt="logo">
+            <!-- <img src="/img/logo.png" class="header__logo" alt="logo"> -->
+            <% if(username == null) {%>
+                <!-- <a href="/login" class="btn btn--white btn--animated">See my profile</a> -->
+                <div class="header__logo">
+                    <a href="/login" class="btn-text">&larr; Log in</a>
+                </div>
+            <% } else { %>
+                <div class="header__logo">
+                    
+                    <a href="/login" class="btn-text">&larr; Log out</a>
+                    <span class="header__logo--text">
+                        &nbsp;&nbsp;Hello <%=username%>
+                    </span> 
+                </div>
+            <% } %>
         </div>
         <div class="header__text-box">
             <h3 class="heading-primary">
-                <span class="heading-primary--main">My Space</span>
-                <span class="heading-primary--sub">Life, Work and Play</span>
+                <!-- <% if(username !=null) {%>
+                    <span class="heading-primary--sub1">
+                        Hello <%=username%>
+                    </span>
+                <% } %> -->
+
+                        <span class="heading-primary--main">Ojo's Space</span>
+                        <span class="heading-primary--sub">Life, Work and Play</span>
             </h3>
             <a href="#" class="btn btn--white btn--animated">See my profile</a>
         </div>

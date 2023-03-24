@@ -80,6 +80,15 @@ body {
     @media (max-width: 600px) {
       .heading-primary--sub {
         letter-spacing: .5rem; } }
+  .heading-primary--sub1 {
+    display: block;
+    font-size: 3rem;
+    font-weight: 500;
+    letter-spacing: 10px;
+    animation: moveInRight 1s ease-out; }
+    @media (max-width: 600px) {
+      .heading-primary--sub1 {
+        letter-spacing: .5rem; } }
 
 .heading-secondary {
   font-size: 3.5rem;
@@ -611,7 +620,14 @@ body {
     transform: translate(-50%, -50%);
     text-align: center; }
   .header__logo {
-    height: 70px; }
+    background-color: rgba(255, 255, 255, 0.4); }
+    .header__logo--text {
+      /* display: block; */
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 8px;
+      color: #ffff;
+      text-transform: uppercase; }
   .header__logo-box {
     position: absolute;
     top: 30px;
