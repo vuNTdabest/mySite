@@ -27,13 +27,11 @@
                     <div class="col-md-6 right">
                         <div class="input-box">
                             <header>Login</header>
-                            <% if(alert!=null) {%>
-                                <div class="input-field">
-                                    <span style="color: red; text-align: center;">
-                                        <%=alert%>
-                                    </span>
-                                </div>
-                            <% } %>
+                            <div class="input-field redAlert">
+                                <% if(alert!=null) {%>
+                                    <%=alert%>
+                                <% } %>
+                            </div>
                             <div class="input-field">
                                 <input type="text" name="email" class="input" id="email" required autocomplete="off">
                                 <label for="email">Email</label>
