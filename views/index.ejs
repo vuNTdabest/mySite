@@ -41,8 +41,7 @@
                 </div>
                 <% } else { %>
                     <div class="header__logo">
-
-                        <a href="/login" class="btn-text">&larr; Log out</a>
+                        <a href="/logout" class="btn-text">&larr; Log out</a>
                         <span class="header__logo--text">
                             &nbsp;&nbsp;Hello <%=username%>
                         </span>
@@ -51,11 +50,6 @@
         </div>
         <div class="header__text-box">
             <h3 class="heading-primary">
-                <!-- <% if(username !=null) {%>
-                    <span class="heading-primary--sub1">
-                        Hello <%=username%>
-                    </span>
-                <% } %> -->
 
                 <span class="heading-primary--main">Ojo's Space</span>
                 <span class="heading-primary--sub">Life, Work and Play</span>
@@ -338,7 +332,7 @@
         <div class="row">
             <div class="enroll">
                 <div class="enroll__form">
-                    <form class="form" action="/home/comments" method="POST">
+                    <form class="form" action="/comment" method="POST">
                         <div>
                             <h2 class="heading-secondary">
                                 feedback
@@ -346,41 +340,52 @@
                         </div>
                         <div class="form__group">
                             <label for="email" class="form__label">Email</label>
-                            <input id="email" type="text" name="email" class="form__input" placeholder="email" required>
+                            <% if(email!=null) {%>
+                                <input id="email" type="text" name="email" class="form__input" value="<%=email%>"
+                                    readonly>
+                                <% } else { %>
+                                    <input id="email" type="text" name="email" class="form__input" placeholder="email"
+                                        disabled>
+                                    <% } %>
+
                         </div>
                         <div class="form__group">
                             <label for="comment" class="form__label">Comment</label>
                             <textarea id="comment" type="text" name="comment" style="height: 15rem; resize: none;"
-                                placeholder="Leave a comment" class="form__input"></textarea>
+                                placeholder="Leave a comment" class="form__input" required></textarea>
                         </div>
                         <div class="form__group">
-                            <a href="#" class="btn btn--blue">
-                                Submit &rarr;
-                            </a>
+                            <% if(username!=null) {%>
+                                <!-- <button class="btn btn-danger" type="submit">
+                                    Comment
+                                </button> -->
+                                <button type="submit"
+                                    class="button-green">
+                                    Comment
+                                </button>
+                                <% } else { %>
+                                    <span style="color: #d93025;">Please log in to comment &nbsp;</span>
+                                    <a href="/login" class="btn-text"> Log in </a>
+                                    <% } %>
+
                         </div>
                     </form>
                 </div>
                 <div style="float: right;width: 50%;margin-top: 6rem">
                     <div class="form">
                         <div>
-                            <h2 class="heading-secondary">
+                            <!-- <h2 class="heading-secondary">
                                 feedback
-                            </h2>
+                            </h2> -->
+                                <% comments.forEach((cmt) => { %>
+                                    <p style="color: #fff;">
+                                        <strong><%=cmt.author%></strong>
+                                        <br>
+                                        <%=cmt.comment%>
+                                    </p>
+                                <%})%>
                         </div>
-                        <div class="form__group">
-                            <label for="email" class="form__label">Email</label>
-                            <input id="email" type="text" name="email" class="form__input" placeholder="email" required>
-                        </div>
-                        <div class="form__group">
-                            <label for="comment" class="form__label">Comment</label>
-                            <textarea id="comment" type="text" name="comment" style="height: 15rem; resize: none;"
-                                placeholder="Leave a comment" class="form__input"></textarea>
-                        </div>
-                        <div class="form__group">
-                            <a href="#" class="btn btn--blue">
-                                Submit &rarr;
-                            </a>
-                        </div>
+
                     </div>
                 </div>
             </div>

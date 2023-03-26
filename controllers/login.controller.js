@@ -16,8 +16,10 @@ exports.login = (req, res) => {
                             res.render('login', { alert: failedLogin })
                         }
                         if (result) {
-                            res.render('index', { username: user.username });
-                            // res.render('index')
+                            // res.render('index', { username: user.username, email: user.email });
+                            // res.redirect('/')
+                            req.session.user = user; // storing user data in the session
+                            res.render('index', { username: user.username, email: user.email, comments: req.session.comments  })
                         } else {
                             const failedLogin = "Password does not matched!"
                             res.render('login', { alert: failedLogin })
@@ -37,7 +39,7 @@ exports.login = (req, res) => {
 exports.logout = (req, res) => {
 	req.session.destroy((err) => {
 		if (err) res.redirect('/500')
-			res.redirect('/home')
+			res.redirect('/')
 	})
 }
 

@@ -9,13 +9,14 @@
         type='text/css'>
     <link rel="stylesheet" href="/css/styleLogin.css">
     <link rel="stylesheet" href="/bootstrap/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
     <title>Login | Vunt</title>
 </head>
 
 <body>
     <div class="wrapper">
         <div class="container main">
-            <form action="/register" method="POST">
+            <form name="form" action="/register" method="POST">
                 <div class="row">
                     <div class="col-md-6 side-image">
                         <!------image------>
@@ -27,17 +28,17 @@
                         <div class="input-box">
                             <header>Register</header>
                             <div class="input-field">
-                                <% if(alert!=null) {%> 
-                                    <%if (alert == "Sign-up successful!!!") {%>
+                                <% if(alert!=null) {%>
+                                    <%if (alert=="Sign-up successful!!!" ) {%>
                                         <span class="textSuccess">
-                                        <%=alert%>
-                                        </span>
-                                    <% } else { %>
-                                        <span class="textFail">
                                             <%=alert%>
                                         </span>
-                                    <% } %>
-                                <% } %>
+                                        <% } else { %>
+                                            <span class="textFail">
+                                                <%=alert%>
+                                            </span>
+                                            <% } %>
+                                                <% } %>
                             </div>
                             <div class="input-field">
                                 <input type="text" class="input" id="username" name="username" required
@@ -47,6 +48,10 @@
                             <div class="input-field">
                                 <input type="text" name="email" class="input" id="email" required autocomplete="off">
                                 <label for="email">Email</label>
+                                <span class="error email-error">
+                                    <i class="bx bx-error-circle error-icon"></i>
+                                    <p class="error-text">Please enter a valid email</p>
+                                </span>
                             </div>
                             <div class="input-field">
                                 <input type="password" name="password" class="input" id="password" required>
@@ -57,7 +62,7 @@
                             <label for="checkbox">Remember me</label>
                         </div> -->
                             <div class="input-field">
-                                <button class="submit" type="submit">
+                                <button id="Button" class="submit" type="submit">
                                     Sign up
                                 </button>
                             </div>
@@ -74,6 +79,8 @@
             </form>
         </div>
     </div>
+    <script src="/validation/formValidation.js"></script>
+
 </body>
 
 </html>

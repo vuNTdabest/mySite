@@ -12,7 +12,7 @@ form {
 }
 
 .textFail {
-    color: red; 
+    color: #d93025; 
     text-align: center; 
     margin-bottom: 1rem;
 }
@@ -222,4 +222,25 @@ span a:hover {
         max-width: 420px;
         width: 100%;
     }
+}
+
+
+/* validation */
+.invalid input {
+    border-color: #d93025;
+}
+.error {
+    display: flex;
+    /* align-items: center;
+    margin-top: 6px; */
+    color: #d93025;
+    font-size: 1rem;
+    display: none;
+}
+.invalid .error {
+    display: flex;
+}
+.error .error-icon {
+    margin-right: 6px;
+    font-size: 15px;
 }

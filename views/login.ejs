@@ -9,13 +9,14 @@
         type='text/css'>
     <link rel="stylesheet" href="/css/styleLogin.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
     <title>Login | Vunt</title>
 </head>
 
 <body>
     <div class="wrapper">
         <div class="container main">
-            <form action="/login" method="POST">
+            <form name="form" action="/login" method="POST">
                 <div class="row">
                     <div class="col-md-6 side-image">
                         <!-- image -->
@@ -27,14 +28,18 @@
                     <div class="col-md-6 right">
                         <div class="input-box">
                             <header>Login</header>
-                            <div class="input-field redAlert">
+                            <div class="input-field textFail">
                                 <% if(alert!=null) {%>
                                     <%=alert%>
-                                <% } %>
+                                        <% } %>
                             </div>
                             <div class="input-field">
                                 <input type="text" name="email" class="input" id="email" required autocomplete="off">
                                 <label for="email">Email</label>
+                                <span class="error email-error">
+                                    <i class="bx bx-error-circle error-icon"></i>
+                                    <p class="error-text">Please enter a valid email</p>
+                                </span>
                             </div>
                             <div class="input-field">
                                 <input type="password" name="password" class="input" id="password" required>
@@ -45,7 +50,7 @@
                             <label for="checkbox">Remember me</label>
                         </div> -->
                             <div class="input-field">
-                                <button class="submit" type="submit">
+                                <button id="Button" class="submit" type="submit">
                                     Login
                                 </button>
                             </div>
@@ -62,6 +67,7 @@
             </form>
         </div>
     </div>
+    <script src="/validation/formValidation.js"></script>
 </body>
 
 </html>

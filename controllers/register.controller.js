@@ -23,8 +23,7 @@ exports.register = (req, res) => {
                             res.render('register', { alert: successAlert })
                         });                        
                     } else {
-                        console.log("This email has been registered!")
-                        const failedSignup = "This email has been registered!"
+                        const failedSignup = "This email had been registered! Try another!"
                         res.render('register', { alert: failedSignup })
                     }
                 })
