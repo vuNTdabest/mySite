@@ -7,21 +7,21 @@ exports.create = (req, res) => {
 
 exports.register = (req, res) => {
     try {
-        const { username, email, password } = req.body
-        if (username && email && password) {
+        if (req.body.username && req.body.email && req.body.password) {
             UserDB.findOne({ $or: [{ email: req.body.email }] })
                 .then((user) => {
                     if (!user) {
-                        const hashedPw = bcrypt.hash(req.body.password, 10)
-                        const data = {
-                            id: Date.now().toString(),
-                            username: req.body.username,
-                            email: req.body.email,
-                            password: hashedPw
-                        }
-                        UserDB.insertMany([data])
-                        const successAlert = "Sign-up successful!!!"
-                        res.render('login', { alert: successAlert })
+                        bcrypt.hash(req.body.password, parseInt(process.env.BCRYPT_SALT_ROUND)).then((hashed) => {
+                            const data = {
+                                id: Date.now().toString(),
+                                username: req.body.username,
+                                email: req.body.email,
+                                password: hashed
+                            }
+                            UserDB.insertMany([data])
+                            const successAlert = "Sign-up successful!!!"
+                            res.render('register', { alert: successAlert })
+                        });                        
                     } else {
                         console.log("This email has been registered!")
                         const failedSignup = "This email has been registered!"
@@ -29,14 +29,13 @@ exports.register = (req, res) => {
                     }
                 })
         } else {
-            console.log("This email has been registered!")
             const failedSignup = "Needed to fill"
             res.render('register', { alert: failedSignup })
         }
 
     } catch (e) {
         console.log(e);
-        const failedSignup = "Needed to fill"
+        const failedSignup = "Something's wrong!!!"
         res.render('register', { alert: failedSignup })
     }
 }

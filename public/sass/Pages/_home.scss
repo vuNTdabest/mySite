@@ -32,7 +32,24 @@
     padding: 5rem 0;
 }
 
-// .section-enroll{
-//     padding: 10rem 0;
-//     background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
-// }
+.section-enroll{
+    padding: 10rem 0;
+    background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+}
+
+.enroll {
+    background-image: 
+     radial-gradient( 150% 200% ellipse at -25%,
+         rgba($color-white, .8) 50%,
+         transparent 50%);
+    background-size: cover;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .2);
+    border-radius: 5rem;
+    height: 50rem;
+
+    &__form{
+        padding: 6rem;
+        width: 50%;
+        float: left;
+    }
+}
