@@ -30,9 +30,9 @@ app.get('/', cmt.showCmt, (req, res) => {
     }
 });
 
-app.get('/', (req, res) => {
-    res.render('index')
-})
+// app.get('/', (req, res) => {
+//     res.render('index')
+// })
 
 
 app.get('/500', (req, res) => {

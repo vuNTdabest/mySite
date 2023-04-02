@@ -371,20 +371,14 @@
                         </div>
                     </form>
                 </div>
-                <div style="float: right;width: 50%;margin-top: 6rem">
+                <div class="enroll__comment">
                     <div class="form">
-                        <div>
-                            <!-- <h2 class="heading-secondary">
-                                feedback
-                            </h2> -->
-                                <% comments.forEach((cmt) => { %>
-                                    <p style="color: #fff;">
-                                        <strong><%=cmt.author%></strong>
-                                        <br>
-                                        <%=cmt.comment%>
-                                    </p>
-                                <%})%>
-                        </div>
+                        <% comments.forEach((cmt) => { %>
+                            <span class="enroll__comment--author"><%=cmt.author%></span>
+                            <br>
+                            <p style="color: #fff;"><%=cmt.comment%></p>
+                            <br>
+                            <%})%>
 
                     </div>
                 </div>

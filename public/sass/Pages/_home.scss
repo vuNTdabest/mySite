@@ -52,4 +52,18 @@
         width: 50%;
         float: left;
     }
+
+    &__comment{
+        float: right;
+        width: 50%;
+        margin-top: 6rem;
+        overflow-y: auto;
+        height: 400px;
+
+        &--author{
+            color: #bedb39; 
+            font-size: 1.8rem;
+            font-weight: bolder;
+        }
+    }
 }

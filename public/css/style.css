@@ -869,3 +869,13 @@ body {
     padding: 6rem;
     width: 50%;
     float: left; }
+  .enroll__comment {
+    float: right;
+    width: 50%;
+    margin-top: 6rem;
+    overflow-y: auto;
+    height: 400px; }
+    .enroll__comment--author {
+      color: #bedb39;
+      font-size: 1.8rem;
+      font-weight: bolder; }
