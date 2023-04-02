@@ -1,8 +1,6 @@
 //Importing libraries that installed by npm
 const express = require('express');
 const app = express();
-// const bcrypt = require('bcrypt');
-// const UserDB = require('./models/user.model')
 const cmt = require('./controllers/comment.controller')
 const session = require('express-session')
 

@@ -1,12 +1,13 @@
 const mongoose = require('mongoose')
 
-mongoose.connect('mongodb+srv://vunt_01:vunt1234@cluster0.7lkzcfz.mongodb.net/MySite')
+const uri = 'mongodb+srv://vunt_01:vunt1234@cluster0.7lkzcfz.mongodb.net/MySite'
+
+mongoose.connect(uri)
     .then(() => {
-        console.log('mongoose connected')
+        console.log(11, 'mongoose connected')
     })
     .catch(() => {
-        console.log('failed to connect mongoose');
-		console.log(process.env.DATABASE_URL);
+        console.log(14, 'failed to connect mongoose');
     })
 
 const commentSchema = new mongoose.Schema({
