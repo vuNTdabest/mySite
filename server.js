@@ -22,9 +22,9 @@ app.use(session({
 
 app.get('/', cmt.showCmt, (req, res) => {
     if (req.session.user != undefined) {
-        res.render('index', { username: req.session.user.username, email: req.session.user.email, comments: req.session.comments })
+        res.render('index', { user: req.session.user, comments: req.session.comments })
     } else {
-        res.render('index', { username: null, email: null, comments: req.session.comments  });
+        res.render('index', { user: null, comments: req.session.comments  });
     }
 });
 
@@ -44,6 +44,7 @@ app.get('/404', (req, res) => {
 require('./routes/auth.route')(app)
 require('./routes/web.route')(app)
 require('./routes/comment.route')(app)
+require('./routes/post.route')(app)
 
 app.listen(process.env.PORT, function () {
     console.log('server runnings: http://localhost:' + process.env.PORT);

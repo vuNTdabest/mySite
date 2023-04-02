@@ -10,12 +10,8 @@ exports.comment = async (req, res) => {
         console.log(cmt);
         await Comment.insertMany([cmt])
         console.log( "12", req.session.user);
-        // Comment.find({}).then((cmt) => {
             req.session.comments.push(cmt)
-        // })
-        // req.locals.comment = 
-        res.render('index', {username: req.session.user.username, email: req.session.user.email,comments: req.session.comments})
-        // res.redirect("/")
+        res.render('index', {user: req.session.user, comments: req.session.comments})
     } else {
         console.log("value undefined");
         res.render('err')

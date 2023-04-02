@@ -1,62 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-    <link type="text/css" rel="stylesheet" href="/css/style.css" />
-
-    <title>About Me | Vu Nguyen | Ojo</title>
-</head>
-
-<body>
-    <div class="navigation">
-        <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
-        <label for="navi-toggle" class="navigation__button">
-            <span class="navigation__icon">&nbsp;</span>
-        </label>
-        <div class="navigation__background">&nbsp;</div>
-        <div class="navigation__nav">
-            <ul class="navigation__list">
-                <li class="navigation__item"><a href="#" class="navigation__link">About me</a></li>
-                <li class="navigation__item"><a href="#" class="navigation__link">Skills</a></li>
-                <li class="navigation__item"><a href="#" class="navigation__link">Courses</a></li>
-                <li class="navigation__item"><a href="#" class="navigation__link">Testimonials</a></li>
-                <!-- <li class="navigation__item"><a href="#" class="navigation__link">Enroll form</a></li> -->
-            </ul>
-        </div>
-    </div>
-
-    <header class="header">
-        <div class="header__logo-box">
-            <!-- <img src="/img/logo.png" class="header__logo" alt="logo"> -->
-            <% if(username==null) {%>
-                <div class="header__logo">
-                    <a href="/login" class="btn-text">&larr; Log in</a>
-                </div>
-                <% } else { %>
-                    <div class="header__logo">
-                        <a href="/logout" class="btn-text">&larr; Log out</a>
-                        <span class="header__logo--text">
-                            &nbsp;&nbsp;Hello <%=username%>
-                        </span>
-                    </div>
-                    <% } %>
-        </div>
-        <div class="header__text-box">
-            <h3 class="heading-primary">
-
-                <span class="heading-primary--main">Ojo's Space</span>
-                <span class="heading-primary--sub">Life, Work and Play</span>
-            </h3>
-            <a href="https://github.com/vuNTdabest" class="btn btn--white btn--animated">See my profile</a>
-        </div>
-    </header>
+<%- include('partials/header') %>
 
     <div class="section-about">
         <div class="u-center-text u-margin-bottom-big">
@@ -98,11 +40,13 @@
         <div class="row">
             <div class="col-1-of-4">
                 <div class="skill-box">
-                    <i class="skill-box__icon fas fa-light fa-building"></i>
-                    <h3 class="heading-tertiary u-margin-bottom-small">CRM System</h3>
-                    <div class="skill-box__text">
-                        Write something about your language skill
-                    </div>
+                    <a href="/post">
+                        <i class="skill-box__icon fas fa-light fa-building"></i>
+                        <h3 class="heading-tertiary u-margin-bottom-small">CRM System</h3>
+                        <div class="skill-box__text">
+                            Write something about your language skill
+                        </div>
+                    </a>
                 </div>
             </div>
 
@@ -340,8 +284,8 @@
                         </div>
                         <div class="form__group">
                             <label for="email" class="form__label">Email</label>
-                            <% if(email!=null) {%>
-                                <input id="email" type="text" name="email" class="form__input" value="<%=email%>"
+                            <% if(user!=undefined) {%>
+                                <input id="email" type="text" name="email" class="form__input" value="<%=user.email%>"
                                     readonly>
                                 <% } else { %>
                                     <input id="email" type="text" name="email" class="form__input" placeholder="email"
@@ -355,12 +299,11 @@
                                 placeholder="Leave a comment" class="form__input" required></textarea>
                         </div>
                         <div class="form__group">
-                            <% if(username!=null) {%>
+                            <% if(user!=undefined) {%>
                                 <!-- <button class="btn btn-danger" type="submit">
                                     Comment
                                 </button> -->
-                                <button type="submit"
-                                    class="button-green">
+                                <button type="submit" class="button-green">
                                     Comment
                                 </button>
                                 <% } else { %>
@@ -373,12 +316,16 @@
                 </div>
                 <div class="enroll__comment">
                     <div class="form">
-                        <% comments.forEach((cmt) => { %>
-                            <span class="enroll__comment--author"><%=cmt.author%></span>
+                        <% comments.forEach((cmt)=> { %>
+                            <span class="enroll__comment--author">
+                                <%=cmt.author%>
+                            </span>
                             <br>
-                            <p style="color: #fff;"><%=cmt.comment%></p>
+                            <p style="color: #fff;">
+                                <%=cmt.comment%>
+                            </p>
                             <br>
-                            <%})%>
+                        <%})%>
 
                     </div>
                 </div>
@@ -387,40 +334,6 @@
 
         <!-- </div> -->
     </section>
-
-    <footer class="footer">
-        <div class="footer__logo-box">
-            <img src="/img/logo.png" class="footer__logo" alt="logo">
-            <h3 class="heading-secondary footer__title">
-                Ojo
-            </h3>
-        </div>
-        <div class="row">
-            <div class="col-1-of-2">
-                <div class="footer__navigation">
-                    <ul class="footer__list">
-                        <li class="footer__item">
-                            <a href="#" class="footer__link">Address</a>
-                        </li>
-                        <li class="footer__item">
-                            <a href="#" class="footer__link">Contacts</a>
-                        </li>
-                        <li class="footer__item">
-                            <a href="#" class="footer__link">Policy</a>
-                        </li>
-                        <li class="footer__item">
-                            <a href="#" class="footer__link">Sponsors</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-1-of-2">
-                <p class="footer__copyright">
-                    Copyright &copy; by Ojo.
-                </p>
-            </div>
-        </div>
-    </footer>
 
     <div class="popup" id="popup">
         <div class="popup__content">
@@ -445,6 +358,4 @@
         </div>
     </div>
 
-</body>
-
-</html>
+<%- include('partials/footer') %>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="/css/style.css" />
+
+    <title>About Me | Vu Nguyen | Ojo</title>
+</head>
+
+<body>
+    <div class="navigation">
+        <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
+        <label for="navi-toggle" class="navigation__button">
+            <span class="navigation__icon">&nbsp;</span>
+        </label>
+        <div class="navigation__background">&nbsp;</div>
+        <div class="navigation__nav">
+            <ul class="navigation__list">
+                <li class="navigation__item"><a href="#" class="navigation__link">About me</a></li>
+                <li class="navigation__item"><a href="#" class="navigation__link">Skills</a></li>
+                <li class="navigation__item"><a href="#" class="navigation__link">Courses</a></li>
+                <li class="navigation__item"><a href="#" class="navigation__link">Testimonials</a></li>
+                <!-- <li class="navigation__item"><a href="#" class="navigation__link">Enroll form</a></li> -->
+            </ul>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="header__logo-box">
+            <!-- <img src="/img/logo.png" class="header__logo" alt="logo"> -->
+            <% if(user==undefined) {%>
+                <div class="header__logo">
+                    <a href="/login" class="btn-text">&larr; Log in</a>
+                </div>
+                <% } else { %>
+                    <div class="header__logo">
+                        <a href="/logout" class="btn-text">&larr; Log out</a>
+                        <span class="header__logo--text">
+                            &nbsp;&nbsp;Hello <%=user.username%>
+                        </span>
+                    </div>
+                    <% } %>
+        </div>
+        <div class="header__text-box">
+            <h3 class="heading-primary">
+
+                <span class="heading-primary--main">Ojo's Space</span>
+                <span class="heading-primary--sub">Life, Work and Play</span>
+            </h3>
+            <a href="https://github.com/vuNTdabest" class="btn btn--white btn--animated">See my profile</a>
+        </div>
+    </header>
