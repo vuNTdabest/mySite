@@ -218,6 +218,24 @@ body {
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
     transform: translateY(0); }
 
+.btn-text--white {
+  transition: all .2s; }
+  .btn-text--white:link, .btn-text--white:visited {
+    color: #fff;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 1px solid #fff;
+    padding: .3rem;
+    font-size: 1.6rem; }
+  .btn-text--white:hover {
+    background-color: #4bb450;
+    color: #fff;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+    transform: translateY(-0.2rem); }
+  .btn-text--white:active {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    transform: translateY(0); }
+
 .button-green {
   background-color: initial;
   background-image: linear-gradient(-180deg, #00D775, #00BD68);

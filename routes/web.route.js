@@ -11,7 +11,6 @@ module.exports = app => {
 
 	app.get('/', cmt.showCmt, posts.showPost, (req, res) => {
 		if (typeof req.session.user !== undefined) {
-			console.log(14, req.session.posts);
 			res.render('index', { user: req.session.user, comments: req.session.comments, posts: req.session.posts })
 		} else {
 			res.render('index', { user: null, comments: req.session.comments, posts: req.session.posts });

@@ -40,7 +40,8 @@
                 <% posts.forEach((post)=> { %>
                     <div class="col-1-of-<%posts.lenth+1%>">
                         <div class="post-box">
-                            <a href="/post-content/<%= post._id %>" method="POST" as="button" type="button" style="text-decoration: none;">
+                            <a href="/post-content/<%= post._id %>" method="POST" as="button" type="button"
+                                style="text-decoration: none;">
                                 <i class="post-box__icon fas fa-duotone fa-newspaper"></i>
                                 <h3 class="heading-tertiary u-margin-bottom-small">
                                     <%= post.title %>
@@ -51,7 +52,7 @@
                             </a>
                         </div>
                     </div>
-                <%})}%>
+                    <%})}%>
 
                         <div class="col-1-of-4">
                             <div class="post-box">
@@ -304,6 +305,12 @@
                             <p style="color: #fff;">
                                 <%=cmt.comment%>
                             </p>
+                            <div>
+                                <a href="/deleteCmt/<%=cmt._id%>" method="GET" as="button" type="button"
+                                    class="btn-text--white">Delete</a>
+                                <a href="/EditCmt/<%=cmt._id%>" as="button" type="button"
+                                    class="btn-text--white">Edit</a>
+                            </div>
                             <br>
                             <%})%>
 
