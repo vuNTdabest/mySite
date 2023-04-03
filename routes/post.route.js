@@ -8,7 +8,7 @@ module.exports = app => {
 	})
 	.post('/create-post', authMiddleware.loggedin, post.createPost)
 
-	// router.get('/post-content')
+	router.get('/post-content/:id', post.showPostById)
 	
 	app.use(router)
 }

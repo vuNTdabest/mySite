@@ -30,12 +30,17 @@
     </div>
 
     <section class="section-posts">
+        <div class="u-center-text" style="margin: -10rem auto 5rem;">
+            <h2 class="heading-post">
+                our posts
+            </h2>
+        </div>
         <div class="row">
             <% if(posts !=null) { %>
                 <% posts.forEach((post)=> { %>
-                    <div class="col-1-of-4">
+                    <div class="col-1-of-<%posts.lenth+1%>">
                         <div class="post-box">
-                            <a href="/post" style="text-decoration: none;">
+                            <a href="/post-content/<%= post._id %>" method="POST" as="button" type="button" style="text-decoration: none;">
                                 <i class="post-box__icon fas fa-duotone fa-newspaper"></i>
                                 <h3 class="heading-tertiary u-margin-bottom-small">
                                     <%= post.title %>
@@ -47,34 +52,13 @@
                         </div>
                     </div>
                 <%})}%>
-                        <!-- <div class="col-1-of-4">
-                <div class="post-box">
-                    <a href="/post" style="text-decoration: none;">
-                        <i class="post-box__icon fas fa-light fa-building"></i>
-                        <h3 class="heading-tertiary u-margin-bottom-small">CRM System</h3>
-                        <div class="post-box__text">
-                            Write something about your language skill
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-1-of-4">
-                <div class="post-box">
-                    <i class="post-box__icon fas fa-sharp fa-regular fa-cube"></i>
-                    <h3 class="heading-tertiary u-margin-bottom-small">Blockchain Technology</h3>
-                    <div class="post-box__text">
-                        Write something about your school, major, favourite subjects,...
-                    </div>
-                </div>
-            </div> -->
 
                         <div class="col-1-of-4">
                             <div class="post-box">
                                 <a href="/create-post" style="text-decoration: none;">
                                     <i class="post-box__icon fas fa-solid fa-plus"></i>
                                     <h3 class="heading-tertiary u-margin-bottom-small">
-                                        add post
+                                        add new post
                                         &nbsp;
                                     </h3>
                                     <div class="post-box__text">

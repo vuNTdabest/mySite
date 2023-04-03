@@ -28,3 +28,21 @@ exports.showPost = (req, res, next) => {
         }
     })
 }
+
+exports.showPostById = (req, res) => {
+    try {
+        Post.findOne({ _id: req.param("id") })
+        .then((post) => {
+            if(post) {
+                req.session.post = post
+                res.render('post-content', { user: req.session.user, post: req.session.post })
+            } else {
+                const failAlert = "No content found!"
+                res.render('post-content', { alert:failAlert, user: req.session.user, post: req.session.post })
+            }
+        })
+    } catch (e) {
+        console.log(e)
+        res.redirect('/')
+    }
+}
