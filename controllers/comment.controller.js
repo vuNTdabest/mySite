@@ -10,7 +10,7 @@ exports.comment = async (req, res) => {
         console.log(cmt);
         await Comment.insertMany([cmt])
         console.log( "12", req.session.user);
-            req.session.comments.push(cmt)
+        req.session.comments.push(cmt)
         res.render('index', {user: req.session.user, comments: req.session.comments})
     } else {
         console.log("value undefined");

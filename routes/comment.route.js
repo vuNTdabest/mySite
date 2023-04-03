@@ -4,7 +4,7 @@ const authMiddleware = require('../middlewares/auth.middleware')
 
 module.exports = app => {
     router.get('/')
-    .post('/comment', authMiddleware.isAuth, comment.comment)
+    .post('/comment', authMiddleware.loggedin, comment.comment)
 
     app.use(router)
 }

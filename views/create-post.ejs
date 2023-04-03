@@ -1,0 +1,38 @@
+<%- include('partials/header') %>
+
+    <div class="section-courses" id="page-content">
+        <div class="u-center-text u-margin-bottom-big">
+            <h2 class="heading-secondary">
+                Add Post
+            </h2>
+            <% if(typeof message !== 'undefined') { %>
+                    <p style="color: #4bb450;">
+                        <%= message %>
+                    </p>
+            <% } %>
+        </div>
+        <div class="container">
+            <form class="form" action="/create-post" method="POST">
+                
+                <div class="form__group">
+                    <!-- <div class="col-sm-12"> -->
+                        <label for="email" class="form__label">Title</label>
+                        <input type="text" name="title" placeholder="Enter Post Title" class="form__input" required>
+                    <!-- </div> -->
+                </div>
+
+                <div class="form__group">
+                    <label for="comment" class="form__label">Content</label>
+                    <textarea id="content" type="text" name="content" style="height: 15rem; resize: none;"
+                        placeholder="Leave a comment" class="form__input" required></textarea>
+                </div>
+
+                <button type="submit" class="button-green">
+                    Submit
+                </button>
+
+            </form>
+        </div>
+    </div>
+
+<%- include('partials/footer') %>

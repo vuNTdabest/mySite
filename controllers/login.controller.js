@@ -19,7 +19,7 @@ exports.login = (req, res) => {
                             // res.render('index', { username: user.username, email: user.email });
                             // res.redirect('/')
                             req.session.user = user; // storing user data in the session
-                            res.render('index', { user: req.session.user, comments: req.session.comments  })
+                            res.render('index', { user: req.session.user, comments: req.session.comments, posts: req.session.posts })
                         } else {
                             const failedLogin = "Password does not matched!"
                             res.render('login', { alert: failedLogin })

@@ -1,6 +1,5 @@
 exports.loggedin = (req, res, next) => {
-	if (req.session.loggedin) {
-		console.log('3', req.session.user);
+	if (req.session && req.session.user) {
 		res.locals.user = req.session.user
 		next()
 	} else {
@@ -9,7 +8,7 @@ exports.loggedin = (req, res, next) => {
 } 
 
 exports.isAuth = (req, res, next) => {
-	if (req.session.loggedin) {
+	if (req.session && req.session.user) {
 		console.log(13, req.session.user);
 		res.locals.user = req.session.user
 		res.render('index')

@@ -16,13 +16,6 @@
                     I wanted to be a programmer.Engineering college opened up a whole new world for me.
                     When I was writing code, I realized I was happiest, strong, I could even call myself invincible.
                 </p>
-                <!-- <h3 class="heading-tertiary u-margin-bottom-small">
-                    master your skills
-                </h3>
-                <p class="paragraph">
-                    In addition to enhanced speed and strength,
-                    Parker also possessed a precognitive “spider sense” that alerted him to approaching dangers.
-                </p> -->
                 <a href="https://flowcv.com/resume/f2fdad7ne0" class=btn-text>Read more &rarr;</a>
             </div>
 
@@ -36,14 +29,30 @@
         </div>
     </div>
 
-    <section class="section-skills">
+    <section class="section-posts">
         <div class="row">
-            <div class="col-1-of-4">
-                <div class="skill-box">
-                    <a href="/post">
-                        <i class="skill-box__icon fas fa-light fa-building"></i>
+            <% if(posts !=null) { %>
+                <% posts.forEach((post)=> { %>
+                    <div class="col-1-of-4">
+                        <div class="post-box">
+                            <a href="/post" style="text-decoration: none;">
+                                <i class="post-box__icon fas fa-duotone fa-newspaper"></i>
+                                <h3 class="heading-tertiary u-margin-bottom-small">
+                                    <%= post.title %>
+                                </h3>
+                                <div class="post-box__text">
+                                    By: <%= post.author %>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                <%})}%>
+                        <!-- <div class="col-1-of-4">
+                <div class="post-box">
+                    <a href="/post" style="text-decoration: none;">
+                        <i class="post-box__icon fas fa-light fa-building"></i>
                         <h3 class="heading-tertiary u-margin-bottom-small">CRM System</h3>
-                        <div class="skill-box__text">
+                        <div class="post-box__text">
                             Write something about your language skill
                         </div>
                     </a>
@@ -51,42 +60,29 @@
             </div>
 
             <div class="col-1-of-4">
-                <div class="skill-box">
-                    <i class="skill-box__icon fas fa-sharp fa-regular fa-cube"></i>
+                <div class="post-box">
+                    <i class="post-box__icon fas fa-sharp fa-regular fa-cube"></i>
                     <h3 class="heading-tertiary u-margin-bottom-small">Blockchain Technology</h3>
-                    <div class="skill-box__text">
+                    <div class="post-box__text">
                         Write something about your school, major, favourite subjects,...
                     </div>
                 </div>
-            </div>
+            </div> -->
 
-            <div class="col-1-of-4">
-                <div class="skill-box">
-                    <i class="skill-box__icon fas fa-solid fa-plus"></i>
-                    <h3 class="heading-tertiary u-margin-bottom-small">
-                        add
-                        &nbsp;
-                    </h3>
-                    <div class="skill-box__text">
-                        &nbsp;
-                        <!-- Write something related to your outside activities, researches,... -->
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-1-of-4">
-                <div class="skill-box">
-                    <i class="skill-box__icon fas fa-solid fa-plus"></i>
-                    <h3 class="heading-tertiary u-margin-bottom-small">
-                        add
-                        &nbsp;
-                    </h3>
-                    <div class="skill-box__text">
-                        &nbsp;
-                        <!-- Write something about your works, liences,... -->
-                    </div>
-                </div>
-            </div>
+                        <div class="col-1-of-4">
+                            <div class="post-box">
+                                <a href="/create-post" style="text-decoration: none;">
+                                    <i class="post-box__icon fas fa-solid fa-plus"></i>
+                                    <h3 class="heading-tertiary u-margin-bottom-small">
+                                        add post
+                                        &nbsp;
+                                    </h3>
+                                    <div class="post-box__text">
+                                        &nbsp;
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
         </div>
     </section>
 
@@ -325,7 +321,7 @@
                                 <%=cmt.comment%>
                             </p>
                             <br>
-                        <%})%>
+                            <%})%>
 
                     </div>
                 </div>
@@ -358,4 +354,4 @@
         </div>
     </div>
 
-<%- include('partials/footer') %>
+    <%- include('partials/footer') %>

@@ -1,7 +1,7 @@
 //Importing libraries that installed by npm
 const express = require('express');
 const app = express();
-const cmt = require('./controllers/comment.controller')
+// const cmt = require('./controllers/comment.controller')
 const session = require('express-session')
 
 require('dotenv').config();
@@ -18,20 +18,6 @@ app.use(session({
     resave: true,
     saveUninitialized: true,
 }))
-
-
-app.get('/', cmt.showCmt, (req, res) => {
-    if (req.session.user != undefined) {
-        res.render('index', { user: req.session.user, comments: req.session.comments })
-    } else {
-        res.render('index', { user: null, comments: req.session.comments  });
-    }
-});
-
-// app.get('/', (req, res) => {
-//     res.render('index')
-// })
-
 
 app.get('/500', (req, res) => {
     res.render('err')
