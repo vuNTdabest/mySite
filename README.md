@@ -1,5 +1,4 @@
 # My page using css and sass
 
-- Goal : Delevop web with animation by sass
-
+- Goal : Develop a blog(Nodejs Mongoose SASS)
 Happy Coding! 😄
